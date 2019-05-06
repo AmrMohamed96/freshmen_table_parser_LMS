@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>individual_table.png</file>
+    <file>Individual-Section-Template2.png</file>
+    <file>Individual-Section-Template2.png</file>
+    <file>Back.png</file>
+    <file>Check Table.png</file>
+    <file>Individual Section Template.jpg</file>
+    <file>Individual Table Menu.png</file>
+    <file>Main Menu.png</file>
+    <file>Main-Menu_03.png</file>
+    <file>Main-Menu_06.png</file>
+    <file>Main-Menu_09.png</file>
+    <file>Main-Menu_12.png</file>
+    <file>Main-Menu_15.png</file>
+    <file>Re Process.png</file>
+    <file>Save Image.png</file>
+    <file>Save PDF.png</file>
+    <file>Main-Menu_03.png</file>
+  </qresource>
+</RCC>
