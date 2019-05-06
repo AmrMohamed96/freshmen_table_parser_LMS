@@ -1,3 +1,7 @@
+import cv2
+import imutils
+import os
+from transform import four_point_transform
 """
 Doc Scanner Script
 
@@ -9,11 +13,6 @@ Function:
 		and thresholding to get the black and white
 		clean effect for a document.
 """
-
-import cv2
-import imutils
-import os
-from transform import four_point_transform
 
 
 def scan_img(img_path):
@@ -52,9 +51,18 @@ def scan_img(img_path):
 	# view of the original image
 	warped = four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
 
-	# Thresholding the image to give it the document scanned effect
-	warped = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
-	thresholded = cv2.adaptiveThreshold(warped,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,41,13)
+	# resizing the image
+	warped = imutils.resize(warped, height=1000)
+	grayscale = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
+
+
+	# adaptive thresholding
+	MAX_THRESHOLD_VALUE = 255
+	BLOCK_SIZE = 41
+	THRESHOLD_CONSTANT = 0
+
+	filtered = cv2.adaptiveThreshold(~grayscale, MAX_THRESHOLD_VALUE, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY,
+									BLOCK_SIZE, THRESHOLD_CONSTANT)
 
 	# Writing the output to a file
 	# Checks if a file with the same name exists first to avoid overwriting.
@@ -65,8 +73,8 @@ def scan_img(img_path):
 			i += 1
 			continue
 		else:
-			cv2.imwrite('resources/scan_output/scanned_img'+ '_' + str(i) + '.jpg', imutils.resize(thresholded, height=2000))
-			return thresholded
+			cv2.imwrite('resources/scan_output/scanned_img'+ '_' + str(i) + '.jpg', warped)
+			return filtered, warped
 
 
 if __name__ == '__main__':

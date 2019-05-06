@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+from camelot import read_pdf
 """
 Tabular Data Extraction
 
@@ -7,8 +9,6 @@ Function:
 		The data can be optionally saved to excel
 		or csv format
 """
-import matplotlib.pyplot as plt
-from camelot import read_pdf
 
 
 def extract_table(path, section, save):

@@ -1,3 +1,8 @@
+from scan import scan_img
+from tabular_extract import extract_table
+from PyQt5 import QtCore, QtGui, QtWidgets
+from main import conversion_algorithm
+
 """
 Table GUI
 
@@ -8,10 +13,6 @@ Function:
         Data is saved to files within the project
         directory.
 """
-from scan import scan_img
-from tabular_extract import extract_table
-from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 # method for getting correct group number
 def get_sec(sec_num):
@@ -27,6 +28,9 @@ def do_your_job(img_pth, path, sec, save, im_state):
     # convert image to scanned format
     if im_state == 1:
         scan_img(img_pth)
+
+    # run the algorithm
+    conversion_algorithm(img_pth)
 
     # extract tabular data
     sec_table_list = extract_table(path, sec, save)

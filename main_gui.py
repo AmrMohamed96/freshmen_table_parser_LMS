@@ -1,3 +1,5 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+from table_gui import Ui_Dialog
 """
 Main GUI Menu
 
@@ -7,8 +9,6 @@ Function:
         in which the user loads file and enters
         his section number.
 """
-from PyQt5 import QtCore, QtGui, QtWidgets
-from table_gui import Ui_Dialog
 
 # some global variables that we use and pass
 # to the next window

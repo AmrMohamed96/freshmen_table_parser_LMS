@@ -1,3 +1,5 @@
+import numpy as np
+import cv2
 """
 Four Point Transform Script
 
@@ -8,9 +10,6 @@ Function:
 		Used mainly to do that for papers
 		in images
 """
-
-import numpy as np
-import cv2
 
 
 def order_points(pts):

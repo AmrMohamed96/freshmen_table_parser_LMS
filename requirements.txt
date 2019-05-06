@@ -1,0 +1,10 @@
+opencv-python
+numpy
+matplotlib
+camelot-py[cv]
+PyQt5
+imutils
+pdf2image
+Pillow
+pytesseract
+XlsxWriter
